@@ -1,0 +1,27 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h4 class="card-title">Need to Create card And Tag Filter Functionality Left</h4>
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="btn-group pull-right mb-2">
+                <a *ngIf="!isLoggedInUser" class="btn btn-info" routerLink="/signup"> Sign Up </a>
+                <a *ngIf="!isLoggedInUser" class="btn btn-info" routerLink="/signin">Sign In</a>
+                <a *ngIf="isLoggedInUser" class="btn btn-info" routerLink="/dashboard">Dashboard</a>
+               
+              </div>
+            
+            </div>
+           
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
