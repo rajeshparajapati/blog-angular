@@ -12,7 +12,7 @@ export class PostService {
 
   /**
    * @description : add post 
-   * @method : POST /add_
+   * @method : POST /createpost
    */
 
   addPost(post:any){    
@@ -29,8 +29,8 @@ export class PostService {
   }
 
    /**
-   * @description : single product
-   * @method : GET /single_product
+   * @description : single Post
+   * @method : GET /get_single_post
    */
 
   getSinglePost(id:any){    
@@ -50,11 +50,31 @@ export class PostService {
 
    /**
    * @description : Delete Post 
-   * @method : PUT /update_product
+   * @method : DELETE /deletepost
    */
 
     deletePost(id:any){    
       return this.http.delete<any>(this.baseUrl+`/api/post/deletepost/${id}`);
     } 
+
+    /**
+   * @description : Post Tags 
+   * @method : GET /get_all_tags
+   */
+
+    getTags(){    
+      return this.http.get<any>(this.baseUrl+`/f/api/post/get_all_tags`);
+    } 
+
+      /**
+   * @description : Get All Posts
+   * @method : POST /get_all_posts
+   */
+
+   getAllPost(formdata:any){    
+      return this.http.post<any>(this.baseUrl+`/f/api/post/get_all_posts`,formdata);
+    } 
+
+
 
 }

@@ -1,27 +1,59 @@
 <section class="content">
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <div class="card card-primary">
-          <div class="card-header">
-            <h4 class="card-title">Need to Create card And Tag Filter Functionality Left</h4>
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="btn-group pull-right mb-2">
-                <a *ngIf="!isLoggedInUser" class="btn btn-info" routerLink="/signup"> Sign Up </a>
-                <a *ngIf="!isLoggedInUser" class="btn btn-info" routerLink="/signin">Sign In</a>
-                <a *ngIf="isLoggedInUser" class="btn btn-info" routerLink="/dashboard">Dashboard</a>
-               
+     <div class="row">
+        <div class="col-12">
+           <div class="card card-primary">
+              <div class="card-header">
+                 <h4 class="" style="text-align: center;">ALL POST LIST</h4>
               </div>
-            
-            </div>
-           
+              <div class="card-body">
+                 <div class="pull-right">
+                    <div class="btn-group pull-right mb-2">
+                       <a *ngIf="!isLoggedInUser" class="btn btn-info " routerLink="/signup"> Sign Up </a>
+                       <a *ngIf="!isLoggedInUser" class="btn btn-info" routerLink="/signin">Sign In</a>
+                       <a *ngIf="isLoggedInUser" class="btn btn-info" routerLink="/dashboard">Dashboard</a>               
+                    </div>
+                 </div>
+                 <form [formGroup]="filter" (ngSubmit)="tagFilter()" ngNativeValidate>
+                 <div class="form-group">
+                  <label for="bannername">Tags</label>
+                  <select class="form-control" formControlName="tags">
+                    <option value="">Select</option>
+                    <option *ngFor="let tag of allTags;" [value]="tag._id">{{tag._id}}</option>
 
-          </div>
-        </div>
+                   </select>
+                 </div>
+                 <div class="card-footer">
+                  <button type="submit" class="btn btn-primary float-right">Filter</button>
+                </div>
+                 </form>
+              </div>
+           </div>
+  <div class="row">
+  <div class="col-lg-4 col-md-6 card"  *ngFor="let post of allPost;">
+    <div class="ts-grid-box ts-grid-content">
+     
+      
+      <div class="post-content">
+        <h2 class="post-title">
+        {{post.title}}
+        </h2>
+        <h4>{{post.subtitle}}</h4>
+        <p>{{post.content}}</p>
+
+       
       </div>
-
     </div>
-  </div><!-- /.container-fluid -->
+  </div>
+
+
+
+
+
+            <!-- col end-->
+</div>
+        </div>
+     </div>
+  </div>
+  <!-- /.container-fluid -->
 </section>
